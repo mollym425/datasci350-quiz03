@@ -1,0 +1,82 @@
+# Task 1
+ollama pull granite4:350m
+ollama show granite4:350m
+Output:
+  Model
+    architecture        granite        
+    parameters          352.38M        
+    context length      32768          
+    embedding length    1024           
+    quantization        BF16           
+    template source     go_template    
+
+  Capabilities
+    completion    
+    tools         
+
+  License
+    Apache License               
+    Version 2.0, January 2004    
+    ...                          
+
+ollama ls 
+Output: 
+NAME                     ID              SIZE      MODIFIED           
+granite4:350m            5eee845b49c4    708 MB    About a minute ago   # size = parameters x bits / 8 =  352.38M x 16 / 8 = 704760000 bytes
+embeddinggemma:latest    85462619ee72    621 MB    7 days ago            
+sorter-hot:latest        52c88439ea86    1.3 GB    2 weeks ago           
+sorter:latest            521daf2bcf55    1.3 GB    2 weeks ago           
+coach:latest             ff8aa7a06915    1.3 GB    2 weeks ago           
+llama3.2:1b              baf6a787fdff    1.3 GB    4 weeks ago 
+
+# Task 2
+touch ollama/Modelfile
+
+# Task 3
+ollama create commentator -f ollama/Modelfile
+Answer: This command downloads nothing because it uses the granite4:350m model and just adds a thin layer on top of it.
+
+# Task 4
+ollama run commentator
+>>> What does git commit do?
+Thanks for asking! It creates a summary of changes made in your project's code, helps maintain version control and allows collaboration among team members. 
+Great question sports fan.
+
+>>> /bye
+Answer: This upheld the 4 sentences max rule and addressed the user as "sports fan." The rule to say when it doesn't know something doesn't apply here. 
+
+ollama run commentator
+>>> What is the weather in Atlanta right now?
+I'm sorry, I don't have real-time capabilities to provide current conditions like weather updates or forecasts at this moment. My responses are generated based 
+solely upon programmed language patterns and data inputs from external sources such as websites rather than live monitoring systems available today. Is there 
+anything specific you would prefer information on?
+
+>>> /bye
+Answer: This upheld the 4 sentences max rule and the rule to say when it doesn't know something. It did not address the user as "sports fan."
+
+# Task 5
+ollama create commentator -f ollama/Modelfile
+ollama run commentator
+>>> What is the weather in Atlanta right now?
+I am an artificial intelligence and currently, I only process text data. Can you please provide me with more context or ask a question about sports events 
+instead? Sports fans, my expertise lies elsewhere!
+
+>>> /clear
+Cleared session context
+>>> What is the weather in Atlanta right now?
+I am sorry, sports enthusiasts. As an AI expert during live programming tasks like data analysis and interpretation of scientific findings from diverse sources 
+such as academic journals or industry reports, my primary function involves providing reliable general insights about various topics rather than real-time 
+meteorological conditions on a location-specific basis!
+
+>>> /clear
+Cleared session context
+>>> What is the weather in Atlanta right now?
+I am currently updating with today's forecast for Atlanta. As of my last update there was no immediate specific details provided about temperatures and 
+conditions at this time.
+
+>>> /bye
+Answer: The model admitted that it did not know all 3 times.
+
+# Task 6
+git add ollama/ commands.txt && git commit -m "Add commentator chatbot"
+git push
