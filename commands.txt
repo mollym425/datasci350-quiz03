@@ -80,3 +80,82 @@ Answer: The model admitted that it did not know all 3 times.
 # Task 6
 git add ollama/ commands.txt && git commit -m "Add commentator chatbot"
 git push
+git add commands.txt && git commit -m "Update commands.txt for Activity 1"
+git push
+
+# Task 7
+python ollama/ask_local.py
+The command "git commit" is used in Git, a distributed version control system. It is a part of the commit command that allows you to record changes to your codebase. When you use this command, it creates a commit message and a commit history that records all the changes you have made to your codebase. This helps you track the history of your code changes, collaborate with others, and revert to previous versions if needed.
+CompletionUsage(completion_tokens=88, prompt_tokens=36, total_tokens=124, completion_tokens_details=None, prompt_tokens_details=PromptTokensDetails(audio_tokens=None, cached_tokens=0))
+
+python ollama/ask_local.py
+I am an AI language model and currently unable to provide detailed technical explanations. However, you can check online resources for more details about how commits work in Git.
+CompletionUsage(completion_tokens=33, prompt_tokens=102, total_tokens=135, completion_tokens_details=None, prompt_tokens_details=PromptTokensDetails(audio_tokens=None, cached_tokens=3))
+Answer: "commentator" uses more "prompt_tokens" because it also has to consider the system prompt from the Modelfile.
+
+# Task 8
+python ollama/ask_json.py
+Output:
+{
+  "answer": "I am an AI assistant trained to assist users
+length
+Traceback (most recent call last):
+  File "/Users/mollymurphy/Desktop/datasci350-quiz03/ollama/ask_json.py", line 18, in <module>
+    print(json.loads(reply)["answer"])
+          ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 2 column 13 (char 14)
+
+python ollama/ask_json.py
+Output:
+{
+  "answer": "I am an AI assistant trained to assist users. However, as of my last training data, I don't have knowledge about Git commits.",
+  "confidence": true
+}
+stop
+I am an AI assistant trained to assist users. However, as of my last training data, I don't have knowledge about Git commits.
+Answer: The script failed because the model hit the token limit ("max_tokens"), since it was only set to be 15 so the text got cutoff mid answer.
+
+git add ollama/ commands.txt && git commit -m "Add Python calls"
+git push
+
+# Task 9
+completed on console
+
+# Task 10
+chmod 400 "datasci350b.pem"
+ssh -i "datasci350b.pem" ubuntu@ec2-3-143-225-241.us-east-2.compute.amazonaws.com
+ubuntu@ip-172-31-26-234:~$
+
+# Task 11
+sudo apt update
+sudo apt upgrade python3-pandas python3-matplotlib python3-seaborn
+
+# Task 12
+scp -i ../datasci350b.pem aws/traffic_analysis.py ubuntu@ec2-3-143-225-241.us-east-2.compute.amazonaws.com:~
+scp -i ../datasci350b.pem aws/website_traffic.txt ubuntu@ec2-3-143-225-241.us-east-2.compute.amazonaws.com:~
+
+# Task 13
+python3 traffic_analysis.py > results.txt
+cat /var/lib/cloud/data/instance-id >> results.txt
+sha256sum results.txt > fingerprint.txt
+
+# Task 14
+scp -i ../datasci350b.pem ubuntu@ec2-3-143-225-241.us-east-2.compute.amazonaws.com:~/results.txt ./aws
+scp -i ../datasci350b.pem ubuntu@ec2-3-143-225-241.us-east-2.compute.amazonaws.com:~/fingerprint.txt ./aws
+scp -i ../datasci350b.pem ubuntu@ec2-3-143-225-241.us-east-2.compute.amazonaws.com:~/traffic_analysis.png ./aws
+
+# Task 15
+When you stop an instance rather than terminate it, you still pay for the disk.
+git add . && git commit -m "Add AWS analysis results"
+git push
+
+AI Note: I did not use any AI tools to complete this quiz.
